@@ -17,7 +17,7 @@ const Employee = () => {
         }
       })
       .catch((err) => console.log(err));
-  }, []);
+  }, []); // If you don't need 'employee' in the dependency array, this is correct
 
   const handleDelete = (id) => {
     axios.delete(`http://localhost:5000/auth/delete_employee/${id}`)
@@ -60,7 +60,7 @@ const Employee = () => {
                   <img
                     src={`http://localhost:3000/Images/` + e.image}
                     className="employee-image"
-                    alt="Profile"
+                    alt={e.name} // Changed 'Profile' to 'e.name' to make it more meaningful
                   />
                 </td>
                 <td>{e.email}</td>
