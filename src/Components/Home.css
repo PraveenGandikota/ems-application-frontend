@@ -1,0 +1,141 @@
+/* Scoped Home Container */
+.home-dashboard-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: #f4f4f4;
+  }
+  
+  /* Dashboard Title */
+  .home-dashboard-title {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+  }
+  
+  /* Stats Container */
+  .home-stats-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    max-width: 900px;
+    width: 100%;
+    margin-bottom: 30px;
+  }
+  
+  /* Individual Stat Card */
+  .home-stat-card {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    width: 250px;
+    text-align: center;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .home-stat-card:hover {
+    transform: scale(1.05);
+  }
+  
+  .home-stat-card h3 {
+    font-size: 20px;
+    color: #555;
+    margin-bottom: 10px;
+  }
+  
+  .home-stat-card p {
+    font-size: 24px;
+    font-weight: bold;
+    color: #2c3e50;
+  }
+  
+  /* Admin List Table */
+  .home-admin-list {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    width: 90%;
+    max-width: 900px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    overflow-x: auto;
+  }
+  
+  .home-admin-list h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  /* Table Styling */
+  .home-admin-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .home-admin-table th, 
+  .home-admin-table td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+  }
+  
+  .home-admin-table th {
+    background: #2c3e50;
+    color: white;
+    font-weight: bold;
+  }
+  
+  .home-admin-table tr:hover {
+    background: #f1f1f1;
+  }
+  
+  /* Buttons */
+  .home-edit-btn, .home-delete-btn {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px;
+    transition: background 0.3s ease-in-out;
+  }
+  
+  .home-edit-btn {
+    background: #3498db;
+    color: white;
+  }
+  
+  .home-edit-btn:hover {
+    background: #2980b9;
+  }
+  
+  .home-delete-btn {
+    background: #e74c3c;
+    color: white;
+  }
+  
+  .home-delete-btn:hover {
+    background: #c0392b;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .home-stats-container {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .home-stat-card {
+      width: 90%;
+    }
+  
+    .home-admin-list {
+      width: 100%;
+    }
+  }
+  

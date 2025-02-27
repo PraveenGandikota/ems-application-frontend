@@ -1,0 +1,116 @@
+/* Main Container */
+.employee-container {
+    padding: 20px;
+    margin-left: 250px; /* Adjust for sidebar */
+    transition: margin-left 0.3s;
+    background-color: #f8f9fa;
+  }
+  
+  /* Header */
+  .employee-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 10px 15px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Table Container */
+  .employee-table-container {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    overflow-x: auto;
+  }
+  
+  /* Table Styling */
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .table thead {
+    background: #007bff;
+    color: white;
+  }
+  
+  .table th, .table td {
+    text-align: center;
+    padding: 10px;
+    vertical-align: middle;
+  }
+  
+  .table tbody tr:hover {
+    background: #f1f1f1;
+  }
+  
+  /* Employee Image */
+  .employee-image {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #ddd;
+  }
+  
+  /* Buttons */
+  .btn {
+    padding: 8px 12px;
+    font-size: 14px;
+    font-weight: bold;
+    transition: 0.3s;
+  }
+  
+  .btn-primary {
+    background-color: #007bff;
+    border: none;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0056b3;
+  }
+  
+  .btn-info {
+    background-color: #17a2b8;
+    border: none;
+  }
+  
+  .btn-info:hover {
+    background-color: #138496;
+  }
+  
+  .btn-danger {
+    background-color: #dc3545;
+    border: none;
+  }
+  
+  .btn-danger:hover {
+    background-color: #c82333;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .employee-container {
+      margin-left: 0;
+      padding: 10px;
+    }
+  
+    .employee-header {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .employee-table-container {
+      overflow-x: auto;
+    }
+  
+    .employee-image {
+      width: 40px;
+      height: 40px;
+    }
+  }
+  
