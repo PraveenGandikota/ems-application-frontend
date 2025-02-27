@@ -46,41 +46,52 @@
 
 // export default EmployeeDetail
 
-
-import axios from 'axios'
-import React, { useEffect, useState } from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 
 const EmployeeDetail = () => {
-    const [employee, setEmployee] = useState([])
+    const [employee, setEmployee] = useState(null);  // Changed initial state to null
     const [loading, setLoading] = useState(true); // Added loading state
-    const { id } = useParams()
-    const navigate = useNavigate()
+    const { id } = useParams();
+    const navigate = useNavigate();
 
     useEffect(() => {
-        axios.get('http://localhost:5000/employee/detail/' + id)
+        // Fetch employee details when the component mounts or id changes
+        axios.get(`http://localhost:5000/employee/detail/${id}`)
             .then(result => {
-                setEmployee(result.data[0])
+                if (result.data) {
+                    setEmployee(result.data[0]); // Set employee data
+                } else {
+                    alert("Employee not found");
+                }
                 setLoading(false); // Set loading to false after fetching
             })
             .catch(err => {
-                console.log(err)
+                console.log(err);
                 alert("Failed to load employee details");
-            })
-    }, [id]) // Add id dependency to ensure correct data is fetched
+                setLoading(false); // Set loading to false even in case of an error
+            });
+    }, [id]); // Dependency on id to fetch the correct data for each employee
 
     const handleLogout = () => {
+        // Handle employee logout
         axios.get('http://localhost:5000/employee/logout')
             .then(result => {
                 if (result.data.Status) {
-                    localStorage.removeItem("valid")
-                    navigate('/')
+                    localStorage.removeItem("valid");
+                    navigate('/');
                 }
-            }).catch(err => console.log(err))
-    }
+            })
+            .catch(err => {
+                console.log(err);
+                alert("Logout failed. Please try again.");
+            });
+    };
 
+    // Show loading message while data is being fetched
     if (loading) {
-        return <div>Loading...</div> // Show loading message while fetching
+        return <div>Loading...</div>;
     }
 
     return (
@@ -88,20 +99,31 @@ const EmployeeDetail = () => {
             <div className="p-2 d-flex justify-content-center shadow">
                 <h4>Employee Management System</h4>
             </div>
-            <div className='d-flex justify-content-center flex-column align-items-center mt-3'>
-                <img src={`http://localhost:3000/Images/` + employee.image} className='emp_det_image' alt={`${employee.name} image`} />
-                <div className='d-flex align-items-center flex-column mt-5'>
+            <div className="d-flex justify-content-center flex-column align-items-center mt-3">
+                <img
+                    src={`http://localhost:3000/Images/` + employee.image}
+                    className="emp_det_image"
+                    alt={`Profile image of ${employee.name}`} // Updated alt text
+                />
+                <div className="d-flex align-items-center flex-column mt-5">
                     <h3>Name: {employee.name}</h3>
                     <h3>Email: {employee.email}</h3>
-                    <h3>Salary: ${employee.salary}</h3>
+                    <h3>Salary: ₹ {employee.salary}</h3> {/* Updated currency symbol to INR */}
                 </div>
                 <div>
-                    <button className='btn btn-primary me-2' onClick={() => navigate(`/edit-employee/${id}`)}>Edit</button>
-                    <button className='btn btn-danger' onClick={handleLogout}>Logout</button>
+                    <button
+                        className="btn btn-primary me-2"
+                        onClick={() => navigate(`/edit-employee/${id}`)}
+                    >
+                        Edit
+                    </button>
+                    <button className="btn btn-danger" onClick={handleLogout}>
+                        Logout
+                    </button>
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default EmployeeDetail
+export default EmployeeDetail;
