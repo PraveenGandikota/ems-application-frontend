@@ -21,7 +21,7 @@ const Dashboard = () => {
     <div className="dashboard-container">
       <div className="sidebar">
         <Link to="/dashboard" className="sidebar-header">
-          <span className="sidebar-title">Praveen G</span>
+          <span className="sidebar-title">GVK</span>
         </Link>
         <ul className="nav-list">
           <li>

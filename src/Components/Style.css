@@ -111,8 +111,9 @@
     font-size: 33px;
   }
   .logopg{
-    height: 25px;
-    width: 25px;
+    height: 45px;
+    width: 45px;
+    gap: 10px;
   }
   .heddfiv{
     font-size: 20px;

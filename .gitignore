@@ -37,3 +37,6 @@ git remote add origin <your-repo-url>
 git add .
 git commit -m "Initial commit"
 git push -u origin main
+
+# Local Netlify folder
+.netlify
